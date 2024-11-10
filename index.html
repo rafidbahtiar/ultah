@@ -1,0 +1,86 @@
+<<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ucapan Ulang Tahun</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f8c8d8; /* Pink pastel */
+            text-align: center;
+            overflow: hidden;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            z-index: 1;
+        }
+        .message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        /* Animasi hati jatuh */
+        .heart {
+            position: absolute;
+            color: #ff4d4d;
+            font-size: 24px;
+            animation: fall linear infinite;
+            opacity: 0.8;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>SELAMAT ULANG TAHUN PIRAKU SAYANG</h2>
+        <div id="pesan" class="message"></div>
+    </div>
+
+    <script>
+        // Menampilkan ucapan selamat ulang tahun
+        const pesan = document.getElementById('pesan');
+        pesan.innerHTML = `
+            HAPPY BIRTHDAY SAYANGKU CANTIKKU CINTAKU!<br>
+            Semoga panjang umur, sehat selalu, dan bahagia.<br>
+            Semoga kuliahnya lancar, semoga apa yang kamu harapkan kesampean,<br>
+            dan semoga di ultah kamu tahun depan masih tetap sama aku yah.<br>
+            I LOVE U SAYANGGGG! ❤️
+        `;
+
+        // Fungsi untuk membuat animasi hati jatuh
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerText = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = Math.random() * 2 + 3 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        // Membuat hati jatuh setiap 500ms
+        setInterval(createHeart, 500);
+    </script>
+</body>
+</html>
